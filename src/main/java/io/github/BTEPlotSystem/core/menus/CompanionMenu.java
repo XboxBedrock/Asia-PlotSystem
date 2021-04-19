@@ -46,13 +46,14 @@ import java.util.logging.Level;
 
 public class CompanionMenu extends AbstractMenu {
 
-    private final Plot[] slots = new Plot[3];
     private final List<CityProject> cityProjects = CityProject.getCityProjects();
+    private static final int MAX_BUILDS = 3;
+    private final Plot[] slots = new Plot[MAX_BUILDS];
 
     private PlotDifficulty selectedPlotDifficulty = null;
 
     public CompanionMenu(Player player) {
-        super(6, "Companion", player);
+        super(6, "Oceania Plots", player);
 
         Mask mask = BinaryMask.builder(getMenu())
                 .item(new ItemBuilder(Material.STAINED_GLASS_PANE, 1, (byte) 7).setName(" ").build())
@@ -68,7 +69,7 @@ public class CompanionMenu extends AbstractMenu {
         try {
             // Get player slots of player
             Builder builder = new Builder(getMenuPlayer().getUniqueId());
-            for (int i = 0; i < 3; i++) {
+            for(int i = 0; i < MAX_BUILDS; i++) {
                 slots[i] = builder.getPlot(Slot.values()[i]);
             }
         } catch (SQLException ex) {
@@ -89,7 +90,37 @@ public class CompanionMenu extends AbstractMenu {
                         .setName("§6§lNavigator").setLore(new LoreBuilder()
                                 .addLine("Open the navigator menu").build())
                         .build());
+//TODO: Move to seperate function setCityProjectItems()
 
+//        // Add "Player Plots Slots" Items
+//        for(int i = 0; i < cityProjects.size(); i++) {
+//            if(i <= 28) { // Why is it limited to 28 States? Actually, this is enough,
+//                          // it would fill up inventory otherwise.
+//                ItemStack stateProjectItem = null;
+//                switch (cityProjects.get(i).getState()) {
+//
+//                }
+//
+//                try {
+//                    getMenu().getSlot(9 + i)
+//                            .setItem(new ItemBuilder(stateProjectItem)
+//                                    .setName("§b§l" + cityProjects.get(i).getName())
+//                                    .setLore(new LoreBuilder()
+//                                            .addLines(cityProjects.get(i).getDescription(),
+//                                                    "",
+//                                                    "§6" + PlotManager.getPlots(cityProjects.get(i).getID(), Status.unclaimed).size() + " §7Plots Open",
+//                                                    "§f---------------------",
+//                                                    "§6" + PlotManager.getPlots(cityProjects.get(i).getID(), Status.unfinished, Status.unreviewed).size() + " §7Plots In Progress",
+//                                                    "§6" + PlotManager.getPlots(cityProjects.get(i).getID(), Status.complete).size() + " §7Plots Completed",
+//                                                    "",
+//                                                    getCityDifficultyForBuilder(cityProjects.get(i).getID(), new Builder(getMenuPlayer().getUniqueId())))
+//                                            .build())
+//                                    .build());
+//                } catch (SQLException ex) {
+//                    getMenu().getSlot(9 + i).setItem(errorItem());
+//                    Bukkit.getLogger().log(Level.SEVERE, "A SQL error occurred!", ex);
+//                }
+//            }
         // Set switch plots difficulty item
         try {
             getMenu().getSlot(7).setItem(getSelectedDifficultyItem());
@@ -97,12 +128,10 @@ public class CompanionMenu extends AbstractMenu {
             getMenu().getSlot(7).setItem(MenuItems.errorItem());
             Bukkit.getLogger().log(Level.SEVERE, "A SQL error occurred!", ex);
         }
-
-        // Set city project items
         setCityProjectItems();
-
-        // Set player slots items
-        for (int i = 0; i < 3; i++) {
+        // Set city project items
+        for (int i = 0; i < MAX_BUILDS; i++) {
+        
             try {
                 getMenu().getSlot(46 + i)
                         .setItem(new ItemBuilder(Material.MAP, 1 + i)
@@ -134,22 +163,22 @@ public class CompanionMenu extends AbstractMenu {
         // Set show plots item
         getMenu().getSlot(51).setItem(PlayerPlotsMenu.getMenuItem());
 
-        // Set player settings item
-        getMenu().getSlot(52)
-                .setItem(new ItemBuilder(Material.REDSTONE_COMPARATOR)
-                        .setName("§b§lSettings")
-                        .setLore(new LoreBuilder()
-                                .addLine("Modify your user settings").build())
-                        .build());
+        // Add "Player Settings Menu" Item
+//        getMenu().getSlot(52)
+//                .setItem(new ItemBuilder(Material.REDSTONE_COMPARATOR)
+//                        .setName("§b§lSettings")
+//                        .setLore(new LoreBuilder()
+//                                .addLine("Modify your user settings").build())
+//                        .build());
     }
 
     @Override
     protected void setItemClickEvents() {
-        // Add click event for navigator item
-        getMenu().getSlot(4).setClickHandler((clickPlayer, clickInformation) -> {
-            clickPlayer.closeInventory();
-            clickPlayer.performCommand("navigator");
-        });
+        // Add Click Event for Navigator Item
+//        getMenu().getSlot(4).setClickHandler((clickPlayer, clickInformation) -> {
+//            clickPlayer.closeInventory();
+//            clickPlayer.performCommand("navigator");
+//        });
 
         // Add click event for switch plots difficulty item
         getMenu().getSlot(7).setClickHandler((clickPlayer, clickInformation) -> {
@@ -202,8 +231,8 @@ public class CompanionMenu extends AbstractMenu {
             });
         }
 
-        // Add click event for player slot items
-        for(int i = 0; i < 3; i++) {
+        // Add Click Event For Player Plot Slots
+        for(int i = 0; i < MAX_BUILDS; i++) {
             if(slots[i] != null) {
                 int itemSlot = i;
                 getMenu().getSlot(46 + i).setClickHandler((clickPlayer, clickInformation) -> {
@@ -231,8 +260,8 @@ public class CompanionMenu extends AbstractMenu {
             clickPlayer.performCommand("plots " + clickPlayer.getName());
         }));
 
-        // Add click event for player settings item
-        getMenu().getSlot(52).setClickHandler(((clickPlayer, clickInformation) -> clickPlayer.playSound(clickPlayer.getLocation(), Utils.ErrorSound, 1, 1)));
+        // Add Click Event For Player Settings Menu
+//        getMenu().getSlot(52).setClickHandler(((clickPlayer, clickInformation) -> clickPlayer.playSound(clickPlayer.getLocation(), Utils.ErrorSound, 1, 1)));
     }
 
    public static ItemStack getMenuItem() {
@@ -246,19 +275,41 @@ public class CompanionMenu extends AbstractMenu {
     private void setCityProjectItems() {
         for(int i = 0; i < cityProjects.size(); i++) {
             if(i <= 28) {
-                ItemStack cityProjectItem = MenuItems.errorItem();
-                switch (cityProjects.get(i).getCountry()) {
-                    case AT:
-                        cityProjectItem = Utils.getItemHead("4397");
+                ItemStack stateProjectItem = MenuItems.errorItem();
+                switch (cityProjects.get(i).getState()) {
+                    case QLD:
+                        stateProjectItem = Utils.getItemHead("27032");
                         break;
-                    case CH:
-                        cityProjectItem = Utils.getItemHead("32348");
+                    case NSW:
+                        stateProjectItem = Utils.getItemHead("27035");
                         break;
-                    case LI:
-                        cityProjectItem = Utils.getItemHead("26174");
+                    case ACT:
+                        stateProjectItem = Utils.getItemHead("27038");
                         break;
-                    case IT:
-                        cityProjectItem = Utils.getItemHead("21903");
+                    case VIC:
+                        stateProjectItem = Utils.getItemHead("27029");
+                        break;
+                    case NT:
+                        stateProjectItem = Utils.getItemHead("27033");
+                        break;
+                    case SA:
+                        stateProjectItem = Utils.getItemHead("27031");
+                        break;
+                    case WA:
+                        stateProjectItem = Utils.getItemHead("27028");
+                        break;
+                    case TAS:
+                        stateProjectItem = Utils.getItemHead("27030");
+                        break;
+                    case NZ:
+                        stateProjectItem = Utils.getItemHead("26403");
+                        break;
+                    case IS:
+                        stateProjectItem = Utils.getItemHead("26168");
+                        break;
+                    default:
+                        stateProjectItem = Utils.getItemHead("36076"); // Barrier
+                     break;
                 }
 
                 try {
@@ -266,7 +317,7 @@ public class CompanionMenu extends AbstractMenu {
                             selectedPlotDifficulty : PlotManager.getPlotDifficultyForBuilder(cityProjects.get(i).getID(), new Builder(getMenuPlayer().getUniqueId()));
 
                     getMenu().getSlot(9 + i)
-                            .setItem(new ItemBuilder(cityProjectItem)
+                            .setItem(new ItemBuilder(stateProjectItem)
                                     .setName("§b§l" + cityProjects.get(i).getName())
                                     .setLore(new LoreBuilder()
                                             .addLines(cityProjects.get(i).getDescription(),

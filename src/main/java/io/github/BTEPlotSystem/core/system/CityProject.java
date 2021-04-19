@@ -25,7 +25,7 @@
 package github.BTEPlotSystem.core.system;
 
 import github.BTEPlotSystem.core.DatabaseConnection;
-import github.BTEPlotSystem.utils.enums.Country;
+import github.BTEPlotSystem.utils.enums.State;
 import org.bukkit.Bukkit;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class CityProject {
 
     private final int ID;
     private String name;
-    private Country country;
+    private State state;
     private String description;
     private String tags;
     private boolean visible;
@@ -54,7 +54,7 @@ public class CityProject {
             this.name = rs.getString("name");
 
             // Country
-            this.country = Country.valueOf(rs.getString("country"));
+            this.state = State.valueOf(rs.getString("state"));
 
             // Description
             this.description = rs.getString("description");
@@ -75,8 +75,8 @@ public class CityProject {
         return name;
     }
 
-    public Country getCountry() {
-        return country;
+    public State getState() {
+        return state;
     }
 
     public String getDescription() { return description; }

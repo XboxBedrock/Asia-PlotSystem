@@ -43,7 +43,7 @@ public class CMD_Feedback implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if(sender instanceof Player) {
-            if(sender.hasPermission("alpsbte.plot")) {
+            if(sender.hasPermission("oceania.plot")) {
                 if(args.length == 1) {
                     if(Utils.TryParseInt(args[0]) != null) {
                         try {
@@ -51,7 +51,7 @@ public class CMD_Feedback implements CommandExecutor {
 
                             if(PlotManager.plotExists(plot.getID())) {
                                 if(plot.isReviewed() || plot.isRejected()) {
-                                    if(plot.getBuilder().getUUID().equals(((Player) sender).getUniqueId()) || sender.hasPermission("alpsbte.review")) {
+                                    if(plot.getBuilder().getUUID().equals(((Player) sender).getUniqueId()) || sender.hasPermission("oceania.review")) {
                                         ResultSet rs = DatabaseConnection.createStatement().executeQuery("SELECT idreview FROM plots WHERE idplot = '" + plot.getID() + "'");
                                         rs.next();
 

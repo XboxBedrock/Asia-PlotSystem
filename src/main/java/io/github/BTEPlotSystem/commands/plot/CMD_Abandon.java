@@ -43,7 +43,7 @@ public class CMD_Abandon implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if(sender instanceof Player) {
-            if(sender.hasPermission("alpsbte.plot")) {
+            if(sender.hasPermission("oceania.plot")) {
                 Player player = (Player) sender;
                 World playerWorld = player.getWorld();
 

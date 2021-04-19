@@ -36,11 +36,11 @@ import org.bukkit.entity.Player;
 
 import java.util.logging.Level;
 
-public class CMD_Plot implements CommandExecutor {
+public class CMD_PlotAdmin implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if(sender instanceof Player) {
-            if(sender.hasPermission("alpsbte.admin")) {
+            if(sender.hasPermission("oceania.admin")) {
                 if(args.length == 1 || args.length == 2) {
                     if(Utils.TryParseInt(args[0]) != null) {
                         int ID = Integer.parseInt(args[0]);

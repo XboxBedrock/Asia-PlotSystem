@@ -62,13 +62,13 @@ public class PortalManager extends Thread {
                         player.teleport(Utils.getSpawnPoint());
                         player.performCommand("companion");
                     } else if(Portal_Terra.contains(playerLocation)) {
-                        BTEPlotSystem.getPlugin().connectPlayer(player, Utils.TERRA_SERVER);
+//                        BTEPlotSystem.getPlugin().connectPlayer(player, Utils.TERRA_SERVER);
                     } else if(Portal_Event.contains(playerLocation)) {
                         FileConfiguration config = BTEPlotSystem.getPlugin().getNavigatorConfig();
 
                         if(config.getBoolean("servers.event.joinable") || player.hasPermission("alpsbte.joinEventStaff")) {
                             if(player.hasPermission("alpsbte.joinEvent")) {
-                                BTEPlotSystem.getPlugin().connectPlayer(player, Utils.EVENT_SERVER);
+//                                BTEPlotSystem.getPlugin().connectPlayer(player, Utils.EVENT_SERVER);
                             }
                         }
                     }

@@ -81,7 +81,7 @@ public class ReviewMenu implements Listener {
         ItemStack plotLoadError = new ItemBuilder(Material.BARRIER, 1)
                 .setName("§cCould not load plot")
                 .setLore(new LoreBuilder()
-                        .addLine("Please contact a Manager or Developer!").build())
+                        .addLine("Please contact a Leader!").build())
                 .build();
 
         List<Plot> plots = PlotManager.getPlots(Status.unreviewed);
@@ -240,7 +240,7 @@ public class ReviewMenu implements Listener {
                                     .addLines("What building techniques have been used and how creative are they?",
                                               "",
                                               "- WorldEdit",
-                                              "- Used Special Blocks")
+                                              "- Used Special Blocks (i.e. Smooth Stone Slab)")
                                     .build())
                             .build();
                     reviewPlotMenu.setItem(i, itemCategory[3]);
@@ -406,7 +406,7 @@ public class ReviewMenu implements Listener {
                         selectedPlot.setScore(totalRating);
 
                         if (!isRejected){
-                            player.sendMessage("§7>> §aPlot §6#" + selectedPlot.getID() + " §aby §6" + selectedPlot.getBuilder().getName() + " §amarked as reviewed!");
+                            player.sendMessage(Utils.getInfoMessageFormat("Plot §6#" + selectedPlot.getID() + " §aby §6" + selectedPlot.getBuilder().getName() + " §amarked as reviewed!"));
 
                             selectedPlot.getReview().setFeedbackSent(false);
                             selectedPlot.getReview().setFeedback("No Feedback");
@@ -421,7 +421,9 @@ public class ReviewMenu implements Listener {
 
                             PlotManager.savePlotAsSchematic(selectedPlot);
                         } else {
-                            player.sendMessage("§7>> §aPlot §6#" + selectedPlot.getID() + " §aby §6" + selectedPlot.getBuilder().getName() + " §ahas been rejected! Send feedback using §6/sendFeedback <ID> <Text> §a!");
+                            player.sendMessage(Utils.getInfoMessageFormat("§aPlot §6#" + selectedPlot.getID() + " §aby §6"
+                                    + selectedPlot.getBuilder().getName() + " §ahas been rejected! " +
+                                    "Send feedback using §6/sendFeedback "+ selectedPlot.getID() +" <Text> §a!"));
 
                             PlotHandler.undoSubmit(selectedPlot);
                         }

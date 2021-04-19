@@ -1,8 +1,8 @@
 main: github.BTEPlotSystem.BTEPlotSystem
 version: 1.0
 api-version: 1.12.2
-name: AlpsBTE-PlotSystem
-author: R3tuxn & Cinnazeyy
+name: Oceania-PlotSystem
+author: R3tuxn & Cinnazeyy, Converted by Coppertine
 depend: [HeadDatabase, HolographicDisplays]
 
 commands:
@@ -12,9 +12,6 @@ commands:
   hub:
     description: Alternative to the spawn command
     usage: /hub
-  tpp:
-    description: Teleport to a player
-    usage: /tpp <Player>
   companion:
     description: Open the Companion menu
     permission: alpsbte.plot

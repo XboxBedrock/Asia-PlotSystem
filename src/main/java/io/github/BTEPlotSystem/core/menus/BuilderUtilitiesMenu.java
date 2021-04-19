@@ -100,7 +100,7 @@ public class BuilderUtilitiesMenu extends AbstractMenu {
         getMenu().getSlot(16).setClickHandler((clickPlayer, clickInformation) -> new SpecialBlocksMenu(clickPlayer));
 
         // Set click event for back button
-        getMenu().getSlot(22).setClickHandler((clickPlayer, clickInformation) -> clickPlayer.performCommand("companion"));
+        getMenu().getSlot(22).setClickHandler((clickPlayer, clickInformation) -> clickPlayer.performCommand("plot"));
     }
 
     public static ItemStack getMenuItem() {

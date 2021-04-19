@@ -1,5 +1,7 @@
 #BTE-PlotSystem Configuration File
 database:
+  address: address
+  port: port
   name: name
   username: username
   password: password
@@ -11,4 +13,6 @@ spawn-point:
   z: 0
   yaw: 0
   pitch: 0
+plot:
+  annouceall: true # Should the server annouce once a player has submitted their plot?
 holograms:

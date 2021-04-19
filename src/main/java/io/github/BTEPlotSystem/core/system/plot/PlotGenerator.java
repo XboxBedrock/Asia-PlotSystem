@@ -113,10 +113,10 @@ public final class PlotGenerator {
     }
 
     private void generateWorld() {
-        WorldCreator wc = new WorldCreator(worldName);
-        wc.environment(org.bukkit.World.Environment.NORMAL);
-        wc.type(WorldType.FLAT);
-        wc.generatorSettings("2;0;1;");
+        WorldCreator wc = new WorldCreator(worldName)
+            .environment(org.bukkit.World.Environment.NORMAL)
+            .type(WorldType.FLAT)
+            .generatorSettings("2;0;1;");
         wc.createWorld();
 
         worldManager.addWorld(worldName, wc.environment(), null, wc.type(), false, "VoidWorld", false);

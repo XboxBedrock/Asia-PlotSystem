@@ -38,15 +38,15 @@ public class CMD_Reload implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
-        if (sender.hasPermission("alpsbte.admin")){
+        if (sender.hasPermission("oceania.admin")){
             try {
                 BTEPlotSystem.getPlugin().saveConfig();
                 BTEPlotSystem.getPlugin().reloadConfig();
                 sender.sendMessage(Utils.getInfoMessageFormat("Successfully reloaded config!"));
 
-                BTEPlotSystem.getHolograms().forEach(HolographicDisplay::updateLeaderboard);
-
-                sender.sendMessage(Utils.getInfoMessageFormat("Successfully reloaded holograms!"));
+//                BTEPlotSystem.getHolograms().forEach(HolographicDisplay::updateLeaderboard);
+//
+//                sender.sendMessage(Utils.getInfoMessageFormat("Successfully reloaded holograms!"));
             } catch (Exception ex) {
                 sender.sendMessage(Utils.getErrorMessageFormat("An error occurred while reloading!"));
                 Bukkit.getLogger().log(Level.SEVERE, "An error occurred while reloading!", ex);

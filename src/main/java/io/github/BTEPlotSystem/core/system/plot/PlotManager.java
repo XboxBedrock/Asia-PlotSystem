@@ -266,7 +266,8 @@ public class PlotManager {
 
     public static boolean plotExists(int ID) {
         String worldName = "P-" + ID;
-        return (BTEPlotSystem.getMultiverseCore().getMVWorldManager().getMVWorld(worldName) != null) || BTEPlotSystem.getMultiverseCore().getMVWorldManager().getUnloadedWorlds().contains(worldName);
+        return (BTEPlotSystem.getMultiverseCore().getMVWorldManager().getMVWorld(worldName) != null)
+                || BTEPlotSystem.getMultiverseCore().getMVWorldManager().getUnloadedWorlds().contains(worldName);
     }
 
     // TODO: Make this function more efficient :eyes:
@@ -307,7 +308,8 @@ public class PlotManager {
     }
 
     public static boolean isPlotWorld(World world) {
-        return BTEPlotSystem.getMultiverseCore().getMVWorldManager().isMVWorld(world) && world.getName().startsWith("P-");
+        return BTEPlotSystem.getMultiverseCore().getMVWorldManager().isMVWorld(world)
+                && world.getName().startsWith("P-");
     }
 
     public static int getPlotSize(Plot plot) {

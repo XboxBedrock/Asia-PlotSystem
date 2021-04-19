@@ -83,13 +83,12 @@ public class BTEPlotSystem extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new MenuFunctionListener(), plugin);
 
         // Add default commands [No Permissions]
-        this.getCommand("spawn").setExecutor(new CMD_Spawn());
-        this.getCommand("hub").setExecutor(new CMD_Spawn());
-        this.getCommand("tpp").setExecutor(new CMD_Tpp());
-        this.getCommand("tpll").setExecutor(new CMD_Tpll());
+//        this.getCommand("spawn").setExecutor(new CMD_Spawn());
+//        this.getCommand("hub").setExecutor(new CMD_Spawn());
+//        this.getCommand("tpp").setExecutor(new CMD_Tpp());
 
-        // Add plot commands [alpsbte.plot Permission]
-        this.getCommand("companion").setExecutor(new CMD_Companion());
+        // Add plot commands [oceania.plot.general Permission]
+        this.getCommand("plot").setExecutor(new CMD_Companion()); // TODO: Replace Companion with /plot command
         this.getCommand("link").setExecutor(new CMD_Link());
         this.getCommand("submit").setExecutor(new CMD_Submit());
         this.getCommand("abandon").setExecutor(new CMD_Abandon());
@@ -98,37 +97,36 @@ public class BTEPlotSystem extends JavaPlugin {
         this.getCommand("plots").setExecutor(new CMD_PlayerPlots());
         this.getCommand("tpll").setExecutor(new CMD_Tpll());
 
-        // Add reviewer commands [alpsbte.review Permission]
+        // Add reviewer commands [oceania.plot.review Permission]
         this.getCommand("review").setExecutor(new CMD_Review());
         this.getCommand("undoreview").setExecutor(new CMD_UndoReview());
         this.getCommand("sendfeedback").setExecutor(new CMD_SendFeedback());
-        this.getCommand("edit").setExecutor(new CMD_Edit());
+        this.getCommand("editplot").setExecutor(new CMD_Edit());
 
-        // Add admin commands [alpsbte.admin Permission]
-        this.getCommand("plot").setExecutor(new CMD_Plot());
+        // Add admin commands [oceania.plot.admin Permission]
+        this.getCommand("plotadmin").setExecutor(new CMD_PlotAdmin());
         this.getCommand("cleanplot").setExecutor(new CMD_CleanPlot());
         this.getCommand("deleteplot").setExecutor(new CMD_DeletePlot());
         this.getCommand("generateplot").setExecutor(new CMD_GeneratePlot());
-        this.getCommand("sethologram").setExecutor(new CMD_SetHologramPosition());
-        this.getCommand("preload").setExecutor(new CMD_Reload());
+       // this.getCommand("sethologram").setExecutor(new CMD_SetHologramPosition());
+        this.getCommand("plot-reload").setExecutor(new CMD_Reload());
 
 
         this.getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
         // Set holograms
-        holograms.addAll(Arrays.asList(
-                new ScoreLeaderboard(),
-                new ParkourLeaderboard(),
-                new EventHologram(),
-                new CompletedBuildsLeaderboard()
-        ));
-        holograms.forEach(Thread::start);
+//        holograms.addAll(Arrays.asList(
+//                new ScoreLeaderboard(),
+//                new ParkourLeaderboard(),
+//                new EventHologram()
+//        ));
+//        holograms.forEach(Thread::start);
 
-        new PortalManager().start();
+//        new PortalManager().start();
 
         PlotManager.checkPlotsForLastActivity();
 
-        getLogger().log(Level.INFO, "Successfully enabled AlpsBTE-PlotSystem plugin.");
+        getLogger().log(Level.INFO, "Successfully enabled Oceania-PlotSystem plugin.");
     }
 
     public static BTEPlotSystem getPlugin() {
@@ -142,11 +140,11 @@ public class BTEPlotSystem extends JavaPlugin {
 
     @Override
     public void reloadConfig() {
-        try{
-            leaderboardConfig = YamlConfiguration.loadConfiguration(new File(Bukkit.getPluginManager().getPlugin("LeakParkour").getDataFolder(), "history.yml"));
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
+//        try{
+//            leaderboardConfig = YamlConfiguration.loadConfiguration(new File(Bukkit.getPluginManager().getPlugin("LeakParkour").getDataFolder(), "history.yml"));
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
 
         configFile = new File(getDataFolder(), "config.yml");
         if (configFile.exists()) {

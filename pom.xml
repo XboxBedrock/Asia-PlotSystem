@@ -6,9 +6,10 @@
 
     <groupId>org.example</groupId>
     <artifactId>BTEPlotSystem</artifactId>
-    <version>1.1</version>
+    <version>1.0-SNAPSHOT</version>
 
     <repositories>
+
         <!-- Spigot & Bukkit API -->
         <repository>
             <id>spigot-repo</id>
@@ -27,19 +28,16 @@
             <url>https://repo.codemc.io/repository/maven-public/</url>
         </repository>
 
-        <!-- World Edit / World Guard API -->
         <repository>
             <id>enginehub-maven</id>
             <url>http://maven.enginehub.org/repo/</url>
         </repository>
 
-        <!-- Fast Async World Edit API -->
         <repository>
             <id>fawe-repo</id>
             <url>http://ci.athion.net/job/FastAsyncWorldEdit/ws/mvn/</url>
         </repository>
 
-        <!-- World Edit / World Guard API -->
         <repository>
             <id>sk89q-repo</id>
             <url>http://maven.sk89q.com/repo/</url>
@@ -52,10 +50,14 @@
             <url>https://jcenter.bintray.com</url>
         </repository>
 
-        <!-- Multiverse Core API -->
         <repository>
             <id>Multiverse-Core</id>
             <url>http://repo.onarandombox.com/content/repositories/multiverse/</url>
+        </repository>
+        <!-- HeadDatabase-API -->
+        <repository>
+            <id>headdatabase-api</id>
+            <url>https://mvn.intellectualsites.com/content/repositories/thirdparty/</url>
         </repository>
 
         <!-- Skull Creator Library -->
@@ -63,30 +65,23 @@
             <id>skullcreator-repo</id>
             <url>https://dl.bintray.com/deanveloper/SkullCreator</url>
         </repository>
-      
-        <!-- Anvil GUI -->
-        <repository>
-            <id>codemc-snapshots</id>
-            <url>https://repo.codemc.io/repository/maven-snapshots/</url>
-        </repository>
     </repositories>
 
     <dependencies>
-        <!-- Spigot API [1.12.2-R0.1-SNAPSHOT] -->
+        <!-- Spigot API -->
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.12.2-R0.1-SNAPSHOT</version>
         </dependency>
-
-        <!-- Bukkit API [1.12.2-R0.1-SNAPSHOT] -->
+        <!-- Bukkit API -->
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
             <version>1.12.2-R0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- Holographic Displays API [2.4.0] -->
+        <!-- Holographic Displays -->
         <dependency>
             <groupId>com.gmail.filoghost.holographicdisplays</groupId>
             <artifactId>holographicdisplays-api</artifactId>
@@ -94,7 +89,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Fast Async World Edit API [Latest]-->
+        <!-- Fast Async World Edit API [VLatest]-->
         <dependency>
             <groupId>com.boydti</groupId>
             <artifactId>fawe-api</artifactId>
@@ -102,7 +97,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- World Edit API [6.1.9]-->
+        <!-- World Edit API [V1.6.9]-->
         <dependency>
             <groupId>com.sk89q.worldedit</groupId>
             <artifactId>worldedit-bukkit</artifactId>
@@ -126,14 +121,14 @@
             <scope>compile</scope>
         </dependency>
 
-        <!-- ParticleLib [1.5.1] -->
+        <!-- ParticleLib -->
         <dependency>
             <groupId>xyz.xenondevs</groupId>
             <artifactId>particle</artifactId>
             <version>1.5.1</version>
         </dependency>
 
-        <!-- Multiverse Core API [2.5.0] -->
+        <!-- Multiverse API -->
         <dependency>
             <groupId>com.onarandombox.multiversecore</groupId>
             <artifactId>Multiverse-Core</artifactId>
@@ -145,20 +140,27 @@
                 </exclusion>
             </exclusions>
         </dependency>
-      
-        <!-- Anvil GUI -->
+
+        <!-- Discord JDA API [V4.2.0_168]-->
+        <!--<dependency>
+            <groupId>net.dv8tion</groupId>
+            <artifactId>JDA</artifactId>
+            <version>4.2.0_168</version>
+        </dependency>-->
+
+        <!-- HeadDatabase-API -->
         <dependency>
-            <groupId>net.wesjd</groupId>
-            <artifactId>anvilgui</artifactId>
-            <version>1.5.0-SNAPSHOT</version>
+            <groupId>me.arcaniax</groupId>
+            <artifactId>HeadDatabase-API</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
-         <!-- HeadDB API [1.0] -->
-        <dependency>
-            <groupId>com.github.shynixn.headdatabase</groupId>
-            <artifactId>hdb-api</artifactId>
-            <version>1.0</version>
-        </dependency>
+        <!-- ASYNC Database API -->
+        <!--<dependency>
+            <groupId>org.mariadb</groupId>
+            <artifactId>r2dbc-mariadb</artifactId>
+            <version>1.0.0</version>
+        </dependency>-->
 
         <!-- MariaDB Connector API [V2.7.1]-->
          <dependency>
@@ -175,6 +177,8 @@
         </dependency>
     </dependencies>
 
+
+
     <!-- Plugin Build Settings -->
     <build>
         <resources>
@@ -189,7 +193,7 @@
         <!-- IMPORTANT: Plugin Building Path -->
         <sourceDirectory>src/main/java/io</sourceDirectory>
         <!-- IMPORTANT: Output File Name -->
-        <finalName>AlpsBTE-PlotSystem V${project.version}</finalName>
+        <finalName>BTE-PlotSystem V1.0</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -203,6 +207,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

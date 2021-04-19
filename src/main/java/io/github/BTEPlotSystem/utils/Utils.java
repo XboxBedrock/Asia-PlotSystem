@@ -50,7 +50,6 @@ public class Utils {
     public static ItemStack getPlayerHead(UUID playerUUID) {
         return SkullCreator.itemFromUuid(playerUUID) != null ? SkullCreator.itemFromUuid(playerUUID) : new ItemBuilder(Material.SKULL_ITEM, 1, (byte) 3).build();
     }
-
     // Sounds
     public static Sound TeleportSound = Sound.ENTITY_ENDERMEN_TELEPORT;
     public static Sound ErrorSound = Sound.ENTITY_ITEM_BREAK;
@@ -63,7 +62,7 @@ public class Utils {
     public static Location getSpawnPoint() {
         FileConfiguration config = BTEPlotSystem.getPlugin().getConfig();
 
-        return new Location(Bukkit.getWorld("Hub"),
+        return new Location(Bukkit.getWorld(HUB_WORLD_NAME),
                 config.getDouble("spawn-point.x"),
                 config.getDouble("spawn-point.y"),
                 config.getDouble("spawn-point.z"),
@@ -73,7 +72,7 @@ public class Utils {
     }
 
     // Player Messages
-    private static final String messagePrefix = "§7§l>> ";
+    private static final String messagePrefix = "§9[§bBTE Oceania§9] §r";
 
     public static String getInfoMessageFormat(String info) {
         return messagePrefix + "§a" + info;
@@ -84,13 +83,22 @@ public class Utils {
     }
 
     // Servers
-    public final static String PLOT_SERVER = "ALPS-1";
+    public final static String HUB_WORLD_NAME = "TerraPreGenerated";
+    public final static String PLOT_SERVER = "hub"; //It's the hub server.. of course.
 
-    public final static String TERRA_SERVER = "ALPS-2";
+    public final static String QLD_SERVER = "qld";
+    public final static String NSW_SERVER = "nsw";
+    public final static String VIC_SERVER = "vic";
+    public final static String WA_SERVER = "wa";
+    public final static String NT_SERVER = "nt";
+    public final static String SA_SERVER = "sa";
+    public final static String TAS_SERVER = "tas";
+    public final static String NZ_SERVER = "nz";
+    public final static String ISLANDS_SERVER = "islands";
 
-    public final static String EVENT_SERVER = "ALPS-3";
+//    public final static String EVENT_SERVER = "ALPS-3";
 
-    public final static String TEST_SERVER = "ALPS-4";
+//    public final static String TEST_SERVER = "ALPS-4";
 
     // Integer Try Parser
     public static Integer TryParseInt(String someText) {

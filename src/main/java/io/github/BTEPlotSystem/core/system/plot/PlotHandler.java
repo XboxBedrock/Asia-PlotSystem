@@ -62,9 +62,10 @@ public class PlotHandler {
         player.setAllowFlight(true);
         player.setFlying(true);
 
+        //TODO: Unsure if should use Companion Menu
         player.getInventory().setItem(8, CompanionMenu.getMenuItem());
 
-        if(player.hasPermission("alpsbte.review")) {
+        if(player.hasPermission("oceania.review")) {
             player.getInventory().setItem(7, ReviewMenu.getMenuItem());
         } else if(player.getInventory().contains(ReviewMenu.getMenuItem())) {
             player.getInventory().remove(ReviewMenu.getMenuItem());
