@@ -6,80 +6,70 @@ author: R3tuxn & Cinnazeyy, Converted by Coppertine
 depend: [HeadDatabase, HolographicDisplays]
 
 commands:
-  spawn:
-    description: Teleport to the spawn
-    usage: /spawn
-  hub:
-    description: Alternative to the spawn command
-    usage: /hub
-  companion:
+  plot:
     description: Open the Companion menu
-    permission: alpsbte.plot
-    usage: /companion
+    permission: oceania.plot
+    usage: /plot
   link:
     description: Sends you the links of the plot you are currently on
-    permission: alpsbte.plot
+    permission: oceania.plot
     usage: /link
   submit:
     description: Submit a unfinished plot
-    permission: alpsbte.plot
+    permission: oceania.plot
     usage: /submit, /submit <ID>
   abandon:
     description: Abandon a unfinished plot
-    permission: alpsbte.plot
+    permission: oceania.plot
     usage: /abandon, /abandon <ID>
   undosubmit:
     description: Undo a submission of a unreviewed plot
-    permission: alpsbte.plot
+    permission: oceania.plot
     usage: /undosubmit, /undosubmit <ID>
   feedback:
     description: Shows all feedback information of a plot
-    permission: alpsbte.plot
+    permission: oceania.plot
     usage: /feedback <ID>
   plots:
     description: Shows all plots of the given player
-    permission: alpsbte.plot
+    permission: oceania.plot
     usage: /plots, /plots <Player>
   review:
     description: Open the review or review plot menu
-    permission: alpsbte.review
+    permission: oceania.review
     usage: /review
   undoreview:
     description: Undo a review of a plot
-    permission: alpsbte.review
+    permission: oceania.review
     usage: /undoreview <ID>
   sendfeedback:
     description: Sets the feedback of a plot
-    permission: alpsbte.review
+    permission: oceania.review
     usage: /sendfeedback <ID> <Text>
-  edit:
+  editplot:
     description: Enable/disble build permissions for reviewers on a plot
-    permission: alpsbte.review
-    usage: /editr
-  plot:
+    permission: oceania.review
+    usage: /editplot
+  plotadmin:
     description: Teleport to a plot
-    permission: alpsbte.admin
-    usage: /plot <ID>
+    permission: oceania.admin
+    usage: /plotadmin <ID>
   cleanplot:
     description: Clean up plot data after a update/bug
-    permission: alpsbte.admin
+    permission: oceania.admin
     usage: /cleanplot, /cleanplot <ID>
   deleteplot:
     description: Delete a plot
-    permission: alpsbte.admin
+    permission: oceania.admin
     usage: /deleteplot <ID>
   generateplot:
     description: Generate a new plot
-    permission: alpsbte.admin
+    permission: oceania.admin
     usage: /generateplot <ID>
-  sethologram:
-    description: Sets the position of a hologram
-    permission: alpsbte.admin
-    usage: /sethologram <name>
-  preload:
+  plotreload:
     description: Reload config and holograms
-    permission: alpsbte.admin
-    usage: /preload
+    permission: oceania.admin
+    usage: /plotreload
   tpll:
     description: teleport to a position in the plot, using irl coordinates
     usage: /tpll <long> <lat>

@@ -145,7 +145,7 @@ public class PlayerPlotsMenu extends AbstractMenu {
         // Set click event for back button
         getMenu().getSlot(49).setClickHandler((clickPlayer, clickInformation) -> {
             clickPlayer.closeInventory();
-            clickPlayer.performCommand("companion");
+            clickPlayer.performCommand("plot");
         });
     }
 

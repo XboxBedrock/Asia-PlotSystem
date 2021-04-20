@@ -89,7 +89,7 @@ public class CityProject {
 
     public static List<CityProject> getCityProjects() {
         try {
-            ResultSet rs = DatabaseConnection.createStatement().executeQuery("SELECT idcityProject FROM cityProjects ORDER BY CAST(country AS CHAR)");
+            ResultSet rs = DatabaseConnection.createStatement().executeQuery("SELECT idcityProject FROM cityProjects ORDER BY CAST(state AS CHAR)");
             List<CityProject> cityProjects = new ArrayList<>();
 
             while (rs.next()) {

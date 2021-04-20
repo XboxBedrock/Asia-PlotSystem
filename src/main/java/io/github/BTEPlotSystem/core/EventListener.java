@@ -59,13 +59,13 @@ public class EventListener extends SpecialBlocks implements Listener {
         // Remove Default Join Message
         event.setJoinMessage(null);
         // Teleport Player to the spawn
-        event.getPlayer().teleport(Utils.getSpawnPoint());
+//        event.getPlayer().teleport(Utils.getSpawnPoint());
 
-        // Add Items
-        if (!event.getPlayer().getInventory().contains(CompanionMenu.getMenuItem())){
-            event.getPlayer().getInventory().setItem(8, CompanionMenu.getMenuItem());
-        }
-        if (event.getPlayer().hasPermission("alpsbte.review")){
+//        // Add Items
+//        if (!event.getPlayer().getInventory().contains(CompanionMenu.getMenuItem())){
+//            event.getPlayer().getInventory().setItem(8, CompanionMenu.getMenuItem());
+//        }
+        if (event.getPlayer().hasPermission("oceania.review")){
             if (!event.getPlayer().getInventory().contains(ReviewMenu.getMenuItem())){
                 event.getPlayer().getInventory().setItem(7, ReviewMenu.getMenuItem());
             }
@@ -73,6 +73,7 @@ public class EventListener extends SpecialBlocks implements Listener {
 
         // User has joined for the first time
         // Adding user to the database
+
         if(!event.getPlayer().hasPlayedBefore()) {
             try {
                 PreparedStatement statement = DatabaseConnection.prepareStatement("INSERT INTO players (uuid, name) VALUES (?, ?)");
@@ -81,6 +82,22 @@ public class EventListener extends SpecialBlocks implements Listener {
                 statement.execute();
             } catch (SQLException ex) {
                 Bukkit.getLogger().log(Level.SEVERE, "Could not add player [" + event.getPlayer().getName() + "] to database!", ex);
+            }
+        } else {
+            try {
+                PreparedStatement statement = DatabaseConnection
+                        .prepareStatement("SELECT uuid, name from players WHERE uuid = "
+                                + event.getPlayer().getUniqueId() + ";");
+                statement.executeQuery();
+            } catch (SQLException ex) { // player does not exist in database, create a new one
+                try {
+                    PreparedStatement statement = DatabaseConnection.prepareStatement("INSERT INTO players (uuid, name) VALUES (?, ?)");
+                    statement.setString(1, event.getPlayer().getUniqueId().toString());
+                    statement.setString(2, event.getPlayer().getName());
+                    statement.execute();
+                } catch (SQLException exe) {
+                    Bukkit.getLogger().log(Level.SEVERE, "Could not add player [" + event.getPlayer().getName() + "] to database!", ex);
+                }
             }
         }
 
