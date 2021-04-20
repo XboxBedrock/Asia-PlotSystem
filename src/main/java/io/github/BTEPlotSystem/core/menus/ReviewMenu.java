@@ -420,6 +420,7 @@ public class ReviewMenu implements Listener {
                             }
 
                             PlotManager.savePlotAsSchematic(selectedPlot);
+                            // TODO: Implement FTP depending on CityProject's State.
                         } else {
                             player.sendMessage(Utils.getInfoMessageFormat("§aPlot §6#" + selectedPlot.getID() + " §aby §6"
                                     + selectedPlot.getBuilder().getName() + " §ahas been rejected! " +

@@ -38,11 +38,13 @@ import com.sk89q.worldedit.regions.Region;
 import github.BTEPlotSystem.BTEPlotSystem;
 import github.BTEPlotSystem.core.DatabaseConnection;
 import github.BTEPlotSystem.core.system.Builder;
+import github.BTEPlotSystem.utils.FTPManager;
 import github.BTEPlotSystem.utils.enums.PlotDifficulty;
 import github.BTEPlotSystem.utils.enums.Status;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -188,11 +190,14 @@ public class PlotManager {
         ForwardExtentCopy forwardExtentCopy = new ForwardExtentCopy(editSession, region, cb, region.getMinimumPoint());
         Operations.complete(forwardExtentCopy);
 
-
+        File schematic = plot.getFinishedSchematic();
         // Write finished plot clipboard to schematic file
-        try(ClipboardWriter writer = ClipboardFormat.SCHEMATIC.getWriter(new FileOutputStream(plot.getFinishedSchematic(), false))) {
+        try(ClipboardWriter writer = ClipboardFormat.SCHEMATIC.getWriter(new FileOutputStream(schematic, false))) {
             writer.write(cb, region.getWorld().getWorldData());
         }
+
+        // Send associated file to correct server via FTP.
+        FTPManager.sendFileFTP(FTPManager.getFTPURI(plot), schematic);
     }
 
     public static double[] convertTerraToPlotXZ(Plot plot, double[] terraCoords) throws IOException {
