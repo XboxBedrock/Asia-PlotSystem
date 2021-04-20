@@ -14,10 +14,10 @@
     <img src="https://github.com/Coppertine/BTE-Oceania-Bot/raw/master/server-icon.png" alt="Oceania Build Team"  width="20%">
   </a>
 
-  <h3 align="center">Alps BTE - Plot System</h3>
+  <h3 align="center">Oceania Build Team - Plot System</h3>
 
   <p align="center">
-    An easy to use building system for the Alps BTE server
+    An easy to use building system for the Oceania Build Team Server
     <br />
     <a href="https://github.com/bte-oceania/Oceania-PlotSystem/wiki"><strong>Explore the docs »</strong></a>
     <br />
