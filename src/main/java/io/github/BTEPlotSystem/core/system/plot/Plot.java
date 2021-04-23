@@ -25,6 +25,7 @@
 package github.BTEPlotSystem.core.system.plot;
 
 import com.sk89q.worldedit.Vector;;
+import github.BTEPlotSystem.BTEPlotSystem;
 import github.BTEPlotSystem.core.DatabaseConnection;
 import github.BTEPlotSystem.core.system.Builder;
 import github.BTEPlotSystem.core.system.CityProject;
@@ -38,6 +39,7 @@ import org.bukkit.Bukkit;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,17 +76,29 @@ public class Plot extends PlotPermissions {
     public PlotDifficulty getDifficulty() { return plotDifficulty; }
 
     public File getOutlinesSchematic() throws IOException {
-        File file = Paths.get(PlotManager.getOutlinesSchematicPath(), String.valueOf(cityProject.getID()), getID() + ".schematic").toFile();
+
+        File file = new File(PlotManager.getOutlinesSchematicPath(),
+                cityProject.getID() + "/" + getID() + ".schematic");
+        Bukkit.getLogger().log(Level.INFO, "Getting Schematic from: " + file.getPath());
+        try {
+            Bukkit.getLogger().log(Level.INFO, "Plugin file is at " + new File(Plot.class.getProtectionDomain().getCodeSource().getLocation()
+                    .toURI()).getPath());
+            Bukkit.getLogger().log(Level.INFO, "Plugins Folder is at: " + BTEPlotSystem.getPlugin().getDataFolder().getPath());
+        } catch (URISyntaxException e) {
+            Bukkit.getLogger().log(Level.SEVERE, e.getMessage());
+        }
         if(!file.exists()) {
-            file.getParentFile().mkdirs();
-            file.createNewFile();
+//            file.getParentFile().mkdirs();
+//            file.createNewFile();
+            Bukkit.getLogger().log(Level.SEVERE, "Schematic NOT FOUND!");
         }
 
         return file;
     }
 
     public File getFinishedSchematic() throws IOException {
-        File file = Paths.get(PlotManager.getFinishedSchematicPath(), String.valueOf(cityProject.getID()), getID() + ".schematic").toFile();
+        File file = new File(PlotManager.getFinishedSchematicPath(),
+                cityProject.getID() + "/" + getID() + ".schematic");
         if(!file.exists()) {
             file.getParentFile().mkdirs();
             file.createNewFile();

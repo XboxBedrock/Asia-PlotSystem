@@ -49,7 +49,7 @@ public class FTPManager {
                 address,
                 port,
                 defaultPath
-                    + "plugins/Oceania-PlotTerra/finished-plots/"
+                    + "/finished-plots/"
                     + plot.getCity().getID()
                     + "/"
                     + plot.getID() + ".schematic"
