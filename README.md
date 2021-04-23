@@ -10,23 +10,23 @@
 <br />
 
 <p align="center">
-  <a href="https://github.com/AlpsBTE/AlpsBTE-PlotSystem">
-    <img src="https://cdn.discordapp.com/attachments/697504468299808819/762357721676644412/server_icon_transparent_bloom.png" alt="Logo" width="200" height="120">
+  <a href="https://github.com/bte-oceania/Oceania-PlotSystem">
+    <img src="https://github.com/Coppertine/BTE-Oceania-Bot/raw/master/server-icon.png" alt="Oceania Build Team"  width="20%">
   </a>
 
-  <h3 align="center">Alps BTE - Plot System</h3>
+  <h3 align="center">Oceania Build Team - Plot System</h3>
 
   <p align="center">
-    An easy to use building system for the Alps BTE server
+    An easy to use building system for the Oceania Build Team Server
     <br />
-    <a href="https://github.com/AlpsBTE/AlpsBTE-PlotSystem/wiki"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/bte-oceania/Oceania-PlotSystem/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="mc.alps-bte.com">Check Out Now</a>
     ·
-    <a href="https://github.com/AlpsBTE/AlpsBTE-PlotSystem/wiki">Report Bug</a>
+    <a href="https://github.com/bte-oceania/Oceania-PlotSystem/wiki">Report Bug</a>
     ·
-    <a href="https://github.com/AlpsBTE/AlpsBTE-PlotSystem/wiki">Request Feature</a>
+    <a href="https://github.com/bte-oceania/Oceania-PlotSystem/wiki">Request Feature</a>
   </p>
 </p>
 
@@ -63,7 +63,7 @@ Check out the [Documentation](https://github.com/AlpsBTE/AlpsBTE-PlotSystem/wiki
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/AlpsBTE/AlpsBTE-PlotSystem/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/bte-oceania/Oceania-PlotSystem/issues) for a list of proposed features (and known issues).
 
 
 
@@ -80,8 +80,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - R3tuxn - [R3tuxn#7169](https://discord.com/invite/vgkspay)
 - Cinnazeyy - [Cinnazeyy#2440](https://discord.com/invite/vgkspay)
+- Coppertine [Coppertine#1718]()
 
-Project Link: [https://github.com/AlpsBTE/AlpsBTE-PlotSystem](https://github.com/AlpsBTE/AlpsBTE-PlotSystem)
+Project Link: [https://github.com/bte-oceania/Oceania-PlotSystem](https://github.com/bte-oceania/Oceania-PlotSystem)
 
 
 
@@ -109,4 +110,4 @@ Project Link: [https://github.com/AlpsBTE/AlpsBTE-PlotSystem](https://github.com
 [issues-shield]: https://img.shields.io/github/issues/AlpsBTE/AlpsBTE-PlotSystem.svg?style=for-the-badge
 [issues-url]: https://github.com/AlpsBTE/AlpsBTE-PlotSystem/issues
 [license-shield]: https://img.shields.io/github/license/AlpsBTE/AlpsBTE-PlotSystem.svg?style=for-the-badge
-[license-url]: https://github.com/AlpsBTE/AlpsBTE-PlotSystem/blob/main/LICENSE.txt
+[license-url]: https://github.com/bte-oceania/Oceania-PlotSystem/blob/main/LICENSE.txt
