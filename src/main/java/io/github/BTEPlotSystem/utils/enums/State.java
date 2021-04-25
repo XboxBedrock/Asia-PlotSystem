@@ -28,53 +28,5 @@ package github.BTEPlotSystem.utils.enums;
  * The list of States within Oceania
  */
 public enum State {
-    /**
-     * Queensland
-     */
-    QLD,
-
-    /**
-     * New South Wales
-     */
-    NSW,
-
-    /**
-     * Australian Capital Territory
-     */
-    ACT,
-
-    /**
-     * Victoria
-     */
-    VIC,
-
-    /**
-     * Northern Territory
-     */
-    NT,
-
-    /**
-     * South Australia
-     */
-    SA,
-
-    /**
-     * Western Australia
-     */
-    WA,
-
-    /**
-     * Tasmania
-     */
-    TAS,
-
-    /**
-     * New Zealand
-     */
-    NZ,
-
-    /**
-     * Islands
-     */
-    IS
+    IN, NP, BT, BN, YE, OM, SA, QA, BH, JO, LB, SY, IQ, IR, AF, PK, JP, VN, HK, MU, SG, MY, TH, PH, ID, KH, MM, TL, LA
 }
