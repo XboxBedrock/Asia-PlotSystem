@@ -75,7 +75,7 @@ public enum State {
     TL,
     TR,
     TM,
-    AE,
+    UAE,
     UZ,
     VN,
     YE
