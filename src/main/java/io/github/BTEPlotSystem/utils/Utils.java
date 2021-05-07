@@ -72,7 +72,7 @@ public class Utils {
     }
 
     // Player Messages
-    private static final String messagePrefix = "§9[§bBTE Oceania§9] §r";
+    private static final String messagePrefix = "§9[§bBuildTheEarth.Asia§9] §r";
 
     public static String getInfoMessageFormat(String info) {
         return messagePrefix + "§a" + info;
@@ -83,18 +83,20 @@ public class Utils {
     }
 
     // Servers
-    public final static String HUB_WORLD_NAME = "TerraPreGenerated";
+    public final static String HUB_WORLD_NAME = "world";
     public final static String PLOT_SERVER = "hub"; //It's the hub server.. of course.
 
-    public final static String QLD_SERVER = "qld";
-    public final static String NSW_SERVER = "nsw";
-    public final static String VIC_SERVER = "vic";
-    public final static String WA_SERVER = "wa";
-    public final static String NT_SERVER = "nt";
-    public final static String SA_SERVER = "sa";
-    public final static String TAS_SERVER = "tas";
-    public final static String NZ_SERVER = "nz";
-    public final static String ISLANDS_SERVER = "islands";
+    public final static String JAPAN_SERVER = "japan";
+    public final static String HKMU_SERVER = "hkmu"; //wont be in use for the forseeable future
+    public final static String MIDEAST_SERVER = "middle_east";
+    public final static String DUBAI_SERVER = "uae"; //wont be in use
+    public final static String ISREALWB_SERVER = "isreal_wb"; //why am i bothering
+    public final static String CIS_SERVER = "cis"; //wont be in use for the forseeable future
+    public final static String ASEAN_SERVER = "asean";
+    public final static String KOREA_SERVER = "korea_unified";
+    public final static String SOUTHASIA_SERVER = "south_asia";
+    public final static String TAIWAN_SERVER = "taiwan";
+    public final static String CHINA_SERVER = "china"; //why am i even bothering to include this
 
 //    public final static String EVENT_SERVER = "ALPS-3";
 
